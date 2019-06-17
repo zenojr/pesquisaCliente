@@ -1,0 +1,29 @@
+
+
+<div class="container">
+    <mat-form-field>
+      <input matInput placeholder="Busca cliente" [(ngModel)] = "dataDOM">
+    </mat-form-field>
+</div>
+
+<mat-divider></mat-divider>
+
+<mat-accordion *ngFor="let cliente of clientes">
+  <div *ngIf =  "cliente.nome == dataDOM">
+    
+      <mat-expansion-panel (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+        {{ cliente.nome }} 
+        </mat-panel-title>
+        <mat-panel-description>
+        Anotação sobre {{ cliente.nome }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p> {{ cliente.anotation }} </p>
+      </mat-expansion-panel>
+
+  </div>
+ 
+</mat-accordion>

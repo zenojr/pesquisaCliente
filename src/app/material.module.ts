@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTableModule } from '@angular/material/table'; 
+import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { MatProgressSpinnerModule, MatTableDataSource, MatFormFieldModule, MatInputModule, MatGridListModule,
-MatToolbarModule, MatSelectModule, MatSnackBarModule, MatIconModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatExpansionModule, MatFormFieldModule, MatInputModule, MatGridListModule,
+MatToolbarModule, MatSelectModule, MatSnackBarModule, MatIconModule, MatDividerModule } from '@angular/material';
 
 @NgModule({
   declarations: [],
@@ -18,7 +18,9 @@ MatToolbarModule, MatSelectModule, MatSnackBarModule, MatIconModule } from '@ang
   MatSelectModule,
   MatSnackBarModule,
   MatIconModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDividerModule,
+  MatExpansionModule
   ],
   exports: [
   MatTableModule,
@@ -30,7 +32,9 @@ MatToolbarModule, MatSelectModule, MatSnackBarModule, MatIconModule } from '@ang
   MatSelectModule,
   MatSnackBarModule,
   MatIconModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDividerModule,
+  MatExpansionModule
   ]
 })
 export class MaterialModule { }
