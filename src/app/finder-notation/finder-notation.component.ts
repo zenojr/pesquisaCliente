@@ -2,16 +2,16 @@ import { FinderService } from './finder.service';
 import { Component, OnInit } from '@angular/core';
 
 
-export const clientes = [
-  {
-    nome: 'Adami',
-    anotation: 'Anotação sobre o cliente da Corfio Adami'
-  },
-  {
-    nome: 'Cassol',
-    anotation: 'Anotação sobre o cliente da Corfio Cassol'
-  }
-];
+// export const clientes = [
+//   {
+//     nome: 'Adami',
+//     anotation: 'Anotação sobre o cliente da Corfio Adami'
+//   },
+//   {
+//     nome: 'Cassol',
+//     anotation: 'Anotação sobre o cliente da Corfio Cassol'
+//   }
+// ];
 
 @Component({
   selector: 'app-finder-notation',
