@@ -2,28 +2,32 @@
 
 <div class="container">
     <mat-form-field>
-      <input matInput placeholder="Busca cliente" [(ngModel)] = "dataDOM">
+      <input type="text" (change)="sendQueryClient(dataDOM)" matInput placeholder="Busca por Nome" [(ngModel)] = "dataDOM">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="number" (change)="sendQueryClientCod(dataDOMCod)" matInput placeholder="Busca por Código" [(ngModel)] = "dataDOMCod">
     </mat-form-field>
 </div>
 
 <mat-divider></mat-divider>
 
-<mat-accordion *ngFor="let cliente of clientes">
-  <div *ngIf =  "cliente.nome == dataDOM">
-    
-      <mat-expansion-panel (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-        {{ cliente.nome }} 
-        </mat-panel-title>
-        <mat-panel-description>
-        Anotação sobre {{ cliente.nome }}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p> {{ cliente.anotation }} </p>
+<mat-accordion>
+      <mat-expansion-panel *ngFor="let cliente of clientes" (click)="sendQueryAnot(cliente.codEmitente)" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ cliente.codEmitente }}
+          </mat-panel-title>
+          <mat-panel-title>
+            {{ cliente.nome }} 
+          </mat-panel-title>
+          <mat-panel-description>
+            CNPJ: {{ cliente.cnpj }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!-- <p *ngFor="let observacao of observacoes" > {{ observacao.anotacao }} </p> -->
+        <mat-tab-group>
+          <mat-tab *ngFor="let observacao of observacoes" label="Obs"> {{ observacao.anotacao }} </mat-tab>
+        </mat-tab-group>
       </mat-expansion-panel>
-
-  </div>
- 
 </mat-accordion>
+

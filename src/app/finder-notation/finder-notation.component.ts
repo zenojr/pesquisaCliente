@@ -1,12 +1,14 @@
+import { FinderService } from './finder.service';
 import { Component, OnInit } from '@angular/core';
+
 
 export const clientes = [
   {
-    nome: 'ADAMI',
+    nome: 'Adami',
     anotation: 'Anotação sobre o cliente da Corfio Adami'
   },
   {
-    nome: 'CASSOL',
+    nome: 'Cassol',
     anotation: 'Anotação sobre o cliente da Corfio Cassol'
   }
 ];
@@ -19,15 +21,46 @@ export const clientes = [
 export class FinderNotationComponent implements OnInit {
   panelOpenState = false;
 
-  clientes =  clientes;
-  dataDOM = '';
-  dataDOMUpper = this.dataDOM.toUpperCase();
+  clientes: any;
+  observacoes: any;
+  dataDOM: any;
 
-  constructor() { }
+
+
+  constructor(private finderService: FinderService) { }
 
   ngOnInit() {
-    
-    setTimeout( () => {console.log(this.dataDOM); }, 2000);
+
   }
+
+  sendQueryClientCod(dataDOMCod) {
+    this.finderService.getClientCod(dataDOMCod)
+                      .subscribe(( data => {
+                        this.clientes = data['ttAnota'];
+                      }));
+  }
+
+  sendQueryClient(dataDOM) {
+    console.log(typeof dataDOM);
+
+    this.finderService.getClient(dataDOM)
+                    .subscribe(( data => {
+                      console.log(data);
+                      this.clientes = data['ttCliente'];
+                      this.observacoes = data['ttAnota'];
+                    }));
+
+  }
+
+  sendQueryAnot(codCliente) {
+    console.log(codCliente);
+    this.finderService.getClientAnot(codCliente)
+                      .subscribe(( data => {
+                        console.log(data);
+                        this.observacoes = data['ttAnota'];
+                      }));
+  }
+
+
 
 }
