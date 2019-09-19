@@ -13,7 +13,9 @@ export class FinderService {
   constructor( private http: HttpClient ) { }
 
   getClient(recieveData) {
-    return this.http.get(this.apiUrlNome + recieveData);
+
+      return this.http.get(this.apiUrlNome + recieveData);
+
   }
 
   getClientCod(recieveData) {

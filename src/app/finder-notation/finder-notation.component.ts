@@ -43,11 +43,11 @@ export class FinderNotationComponent implements OnInit {
   sendQueryClient(dataDOM) {
     console.log(typeof dataDOM);
 
-    this.finderService.getClient(dataDOM)
-                    .subscribe(( data => {
+    this.finderService.getClient(dataDOM).subscribe(( data => {
                       console.log(data);
                       this.clientes = data['ttCliente'];
                       this.observacoes = data['ttAnota'];
+                      return data;
                     }));
 
   }
